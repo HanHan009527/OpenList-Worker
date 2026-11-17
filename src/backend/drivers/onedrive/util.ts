@@ -101,6 +101,12 @@ export async function requestApi<T>(
       await refreshToken(d)
       return requestApi(d, url, method, data, true)
     }
+    // Keep missing-item semantics for WebDAV clients (including Zotero).
+    // Microsoft wording is "could not be found", which is not matched by
+    // the shared WebDAV not-found classifier.
+    if (res.status === 404) {
+      throw new Error("file not found")
+    }
     throw new Error(errData?.message || `Request failed: ${res.status}`)
   }
   if (res.status === 204) return undefined as unknown as T
