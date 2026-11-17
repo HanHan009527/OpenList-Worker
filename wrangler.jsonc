@@ -19,7 +19,7 @@
   },
   "compatibility_date": "2026-08-04",
   "compatibility_flags": ["nodejs_compat"],
-  "workers_dev": false,
+  "workers_dev": true,
   "preview_urls": false,
   "keep_vars": true,
   "assets": {
@@ -122,7 +122,7 @@
   //
   // ▶ 方案 B：D1（关系型，可与 Go 后端共享库）
   "d1_databases": [
-    { "binding": "DB", "database_name": "openlist-worker-test" }
+    { "binding": "DB", "database_name": "openlist-worker-test", "database_id": "94d721c9-004e-4bad-b1a2-92d249510973" }
   ],
   //
   // ▶ 方案 C：Durable Objects（内置 SQLite，强一致）
